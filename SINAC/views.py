@@ -5,6 +5,7 @@ from .forms import EstudianteForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.contrib import messages
+from .forms import ProfesorForm
 
 def registrar_estudiante(request):
     if request.method == "POST":
@@ -72,3 +73,16 @@ def registrar_estudiante(request):
         form = EstudianteForm()
     
     return render(request, 'registrar_estudiante.html', {'form': form})
+
+
+def registrar_profesor(request):
+    if request.method == "POST":
+        form = ProfesorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profesor registrado exitosamente.")
+            return redirect('home_admin')  # Redirigir al panel de admin
+    else:
+        form = ProfesorForm()
+    return render(request, 'registrar_profesor.html', {'form': form})
+

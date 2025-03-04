@@ -17,8 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from SINAC.views import registrar_profesor
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('SINAC.urls')),  # Incluye las rutas de la app SINAC
+    path('', include('SINAC.urls')), 
+    path('registrar_profesor/', registrar_profesor, name='registrar_profesor'),
 ]

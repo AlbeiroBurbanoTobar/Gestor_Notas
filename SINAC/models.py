@@ -4,10 +4,12 @@ from django.contrib.auth.models import AbstractUser
 class Usuario(AbstractUser):
     ADMINISTRADOR = 'ADMINISTRADOR'
     ESTUDIANTE = 'ESTUDIANTE'
+    PROFESOR = 'profesor'
     
     ROLES = [
         (ADMINISTRADOR, 'Administrador'),
         (ESTUDIANTE, 'Estudiante'),
+        (PROFESOR, 'Profesor'),
     ]
     
     rol = models.CharField(max_length=20, choices=ROLES, default=ESTUDIANTE)
@@ -30,6 +32,15 @@ class Estudiante(models.Model):
     def __str__(self):
         return f"{self.usuario.first_name} {self.usuario.last_name} - Curso {self.curso.nombre}"
 
+class Profesor(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    direccion = models.CharField(max_length=255)
+    asignatura = models.CharField(max_length=100)
+    fecha_nacimiento = models.DateField()
+    telefono = models.CharField(max_length=15)
+
+    def __str__(self):
+        return f"{self.usuario.first_name} {self.usuario.last_name} - {self.asignatura}"
 
 class Nota(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)

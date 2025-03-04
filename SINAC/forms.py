@@ -4,7 +4,7 @@ from .models import Usuario, Estudiante, Curso
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Usuario, Estudiante, Curso
+from .models import Usuario, Estudiante, Curso, Profesor
 
 class EstudianteForm(UserCreationForm):
     documento = forms.CharField(max_length=20)
@@ -38,3 +38,21 @@ class EstudianteForm(UserCreationForm):
                 telefono_acudiente=self.cleaned_data['telefono_acudiente'],
                 curso=curso  # Ahora es una instancia de Curso
             )
+
+
+class ProfesorForm(UserCreationForm):
+    direccion = forms.CharField(max_length=255)
+    asignatura = forms.CharField(max_length=100)
+    fecha_nacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    telefono = forms.CharField(max_length=15)
+
+    class Meta:
+        model = Usuario
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.rol = Usuario.PROFESOR  
+        if commit:
+            user.save()
+        return user

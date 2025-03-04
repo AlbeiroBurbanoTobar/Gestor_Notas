@@ -65,7 +65,7 @@ El sistema incluye los siguientes casos de uso:
 | **Flujo Alternativo:**            | **Credenciales inválidas:** Si las credenciales son incorrectas, el sistema muestra un mensaje de error y solicita que se reintente. |
 | **Poscondiciones:**               | El usuario ha iniciado sesión correctamente. |
 
-![UC-01]("https://github.com/AlbeiroBurbanoTobar/SINAC/blob/2bad0a3bf45bc3975e920bb5cefd45a9fa9559da/Im%C3%A1genes/UC-01.png")
+![UC-01]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-01.png")
 
 ```plantuml
 @startuml
@@ -94,7 +94,7 @@ Usuario -- UC01
 | **Flujo Alternativo:**            | Ninguno. |
 | **Poscondiciones:**               | El usuario ha cerrado sesión correctamente. |
 
-![UC-02]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-02.png")
+![UC-02]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-02.png")
 
 ```plantuml
 @startuml
@@ -120,7 +120,7 @@ Usuario -- UC02
 | **Flujo Alternativo:**            | **Contraseña actual incorrecta:** Si la contraseña actual es incorrecta, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La contraseña del usuario ha sido actualizada. |
 
-![UC-03]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-03.png")
+![UC-03]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-03.png")
 
 ```plantuml
 @startuml
@@ -146,7 +146,7 @@ Usuario -- UC03
 | **Flujo Alternativo:**            | **Datos inválidos:** Si los datos ingresados son inválidos, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El nuevo usuario ha sido creado en el sistema. |
 
-![UC-04]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-04.png")
+![UC-04]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-04.png")
 
 ```plantuml
 @startuml
@@ -172,7 +172,7 @@ Administrador -- UC04
 | **Flujo Alternativo:**            | **Rol no válido:** Si el rol seleccionado no es válido, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | Los roles y permisos del usuario han sido actualizados. |
 
-![UC-05]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-05.png")
+![UC-05]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-05.png")
 
 ```plantuml
 @startuml
@@ -198,7 +198,7 @@ Administrador -- UC05
 | **Flujo Alternativo:**            | **Cancelar eliminación:** Si el administrador cancela la acción, el sistema no elimina al usuario. |
 | **Poscondiciones:**               | El usuario ha sido eliminado del sistema. |
 
-![UC-06]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-06.png")
+![UC-06]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-06.png")
 
 ```plantuml
 @startuml
@@ -224,7 +224,7 @@ Administrador -- UC06
 | **Flujo Alternativo:**            | **Curso no disponible:** Si no hay cursos disponibles, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El estudiante ha sido asignado a un curso. |
 
-![UC-07]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-07.png")
+![UC-07]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-07.png")
 
 ```plantuml
 @startuml
@@ -250,7 +250,7 @@ Administrador -- UC07
 | **Flujo Alternativo:**            | **Grupo no disponible:** Si no hay grupos disponibles, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El estudiante ha sido asignado a un grupo. |
 
-![UC-08]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-08.png")
+![UC-08]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-08.png")
 
 ```plantuml
 @startuml
@@ -276,7 +276,7 @@ Administrador -- UC08
 | **Flujo Alternativo:**            | **Datos inválidos:** Si los datos ingresados son inválidos, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La información del estudiante ha sido actualizada. |
 
-![UC-09]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-09.png")
+![UC-09]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-09.png")
 
 ```plantuml
 @startuml
@@ -302,7 +302,7 @@ Administrador -- UC09
 | **Flujo Alternativo:**            | **Datos inválidos:** Si los datos ingresados son inválidos, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La solicitud de actualización ha sido enviada. |
 
-![UC-10]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-10.png")
+![UC-10]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-10.png")
 
 ```plantuml
 @startuml
@@ -330,7 +330,7 @@ Estudiante -- UC10
 | **Flujo Alternativo:**            | **Estudiante no encontrado:** Si el estudiante no existe, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El usuario ha consultado la información del estudiante. |
 
-![UC-11]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-11.png")
+![UC-11]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-11.png")
 
 ```plantuml
 @startuml
@@ -349,7 +349,7 @@ Docente -- UC11
 2. **Gestión de Asignaturas y Cursos**:
    - UC-12: Registrar asignaturas.
 
-   | **Especificación de caso de uso** | |
+| **Especificación de caso de uso** | |
 |-----------------------------------|-|
 | **Nombre:**                       | Registrar asignaturas |
 | **Código:**                       | UC-12 |
@@ -360,7 +360,7 @@ Docente -- UC11
 | **Flujo Alternativo:**            | **Datos inválidos:** Si los datos ingresados son inválidos, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La asignatura ha sido registrada en el sistema. |
 
-![UC-12]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-12.png")
+![UC-12]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-12.png")
 
 ```plantuml
 @startuml
@@ -386,7 +386,7 @@ Administrador -- UC12
 | **Flujo Alternativo:**            | **Docente no disponible:** Si no hay docentes disponibles, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El docente ha sido asignado a la asignatura y grupo. |
 
-![UC-13]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-13.png")
+![UC-13]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-13.png")
 
 ```plantuml
 @startuml
@@ -411,7 +411,7 @@ Administrador -- UC13
 | **Flujo Alternativo:**            | **Curso no encontrado:** Si el curso no existe, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El usuario ha consultado las asignaturas del curso. |
 
-![UC-14]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-14.png")
+![UC-14]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-14.png")
 
 ```plantuml
 @startuml
@@ -443,7 +443,7 @@ Estudiante -- UC14
 | **Flujo Alternativo:**            | **Notas inválidas:** Si las notas ingresadas están fuera del rango permitido, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | Las notas de los estudiantes han sido registradas. |
 
-![UC-15]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-15.png")
+![UC-15]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-15.png")
 
 ```plantuml
 @startuml
@@ -469,7 +469,7 @@ Docente -- UC15
 | **Flujo Alternativo:**            | **Notas inválidas:** Si las notas ingresadas están fuera del rango permitido, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | Las notas de los estudiantes han sido actualizadas. |
 
-![UC-16]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-16.png")
+![UC-16]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-16.png")
 
 ```plantuml
 @startuml
@@ -495,7 +495,7 @@ Docente -- UC16
 | **Flujo Alternativo:**            | **Notas no disponibles:** Si no hay notas registradas, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El usuario ha consultado las notas correctamente. |
 
-![UC-17]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-17.png")
+![UC-17]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-17.png")
 
 ```plantuml
 @startuml
@@ -522,7 +522,7 @@ Estudiante -- UC17
 | **Flujo Alternativo:**            | **Datos insuficientes:** Si no hay suficientes datos para generar el reporte, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El reporte de notas ha sido generado y está disponible para su consulta. |
 
-![UC-18]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-18.png")
+![UC-18]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-18.png")
 
 ```plantuml
 @startuml
@@ -551,7 +551,7 @@ Docente -- UC18
 | **Flujo Alternativo:**            | **Asistencia ya registrada:** Si la asistencia ya fue registrada para esa fecha, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La asistencia de los estudiantes ha sido registrada. |
 
-![UC-19]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-19.png")
+![UC-19]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-19.png")
 
 ```plantuml
 @startuml
@@ -576,7 +576,7 @@ Docente -- UC19
 | **Flujo Alternativo:**            | **Registro no encontrado:** Si no hay registros de asistencia, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | Los registros de asistencia han sido actualizados. |
 
-![UC-20]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-20.png")
+![UC-20]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-20.png")
 
 ```plantuml
 @startuml
@@ -602,7 +602,7 @@ Docente -- UC20
 | **Flujo Alternativo:**            | **Asistencia no disponible:** Si no hay registros de asistencia, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El usuario ha consultado los registros de asistencia. |
 
-![UC-21]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/UC-21.png")
+![UC-21]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-21.png")
 
 ```plantuml
 @startuml
@@ -626,7 +626,7 @@ Estudiante -- UC21
 
 El modelo de dominio del sistema se representa mediante diagramas UML que describen las relaciones entre las entidades principales, como **Usuario**, **Administrador**, **Docente**, **Estudiante**, **Curso**, **Asignatura**, **Grupo**, **Nota**, **Asistencia** y **Horario**.
 
-![Modelo de Dominio]("https://github.com/AlbeiroBurbanoTobar/SINAC/blob/2bad0a3bf45bc3975e920bb5cefd45a9fa9559da/Im%C3%A1genes/Modelo_de_dominio.png")
+![Modelo de Dominio]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/Modelo_de_dominio.png")
 ```plantuml
 @startuml
 class Usuario {}
@@ -679,7 +679,7 @@ Cada uno de los diagramas de Robustez son por cada caso de uso:
 
 - Iniciar sesión
 
-![MR-01]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-01.png")
+![MR-01]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-01.png")
 
 ```plantuml
 @startuml
@@ -698,7 +698,7 @@ ControladorAutenticacion --> LoginUI : "Muestra resultado"
 
 - Cerrar sesión
 
-![MR-02]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-02.png")
+![MR-02]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-02.png")
 
 ```plantuml
 @startuml
@@ -717,7 +717,7 @@ ControladorSesion --> LogoutUI : "Confirma cierre"
 
 - Cambiar contraseña
 
-![MR-03]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-03.png")
+![MR-03]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-03.png")
 
 ```plantuml
 @startuml
@@ -736,7 +736,7 @@ ControladorContraseña --> CambiarContraseñaUI : "Confirma cambio"
 
 - Crear usuarios
 
-![MR-04]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-04.png")
+![MR-04]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-04.png")
 
 ```plantuml
 @startuml
@@ -755,7 +755,7 @@ ControladorUsuario --> CrearUsuarioUI : "Confirma creación"
 
 - Gestionar roles
 
-![MR-05]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-05.png")
+![MR-05]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-05.png")
 
 ```plantuml
 @startuml
@@ -774,7 +774,7 @@ ControladorRoles --> GestionarRolesUI : "Confirma operación"
 
 - Eliminar usuarios
 
-![MR-06]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-06.png")
+![MR-06]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-06.png")
 
 ```plantuml
 @startuml
@@ -793,7 +793,7 @@ ControladorUsuario --> EliminarUsuarioUI : "Confirma eliminación"
 
 - Registrar estudiante a un curso
 
-![MR-07]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-07.png")
+![MR-07]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-07.png")
 
 ```plantuml
 @startuml
@@ -814,7 +814,7 @@ ControladorCurso --> RegistrarEstudianteUI : "Confirma registro"
 
 - Registrar estudiante a un grupo
 
-![MR-08]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-08.png")
+![MR-08]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-08.png")
 
 ```plantuml
 @startuml
@@ -835,7 +835,7 @@ ControladorGrupo --> RegistrarGrupoUI : "Confirma registro"
 
 - Modificar información de estudiantes
 
-![MR-09]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-09.png")
+![MR-09]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-09.png")
 
 ```plantuml
 @startuml
@@ -854,7 +854,7 @@ ControladorEstudiante --> ModificarEstudianteUI : "Confirma cambios"
 
 - Solicitar actualización de información
 
-![MR-10]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-10.png")
+![MR-10]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-10.png")
 
 ```plantuml
 @startuml
@@ -873,7 +873,7 @@ ControladorSolicitud --> SolicitarActualizacionUI : "Confirma recepción"
 
 - Consultar información de estudiantes
 
-![MR-11]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-11.png")
+![MR-11]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-11.png")
 
 ```plantuml
 @startuml
@@ -892,7 +892,7 @@ ControladorConsulta --> ConsultarEstudianteUI : "Muestra resultados"
 
 - Registrar asignaturas
 
-![MR-12]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-12.png")
+![MR-12]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-12.png")
 
 ```plantuml
 @startuml
@@ -911,7 +911,7 @@ ControladorAsignatura --> RegistrarAsignaturaUI : "Confirma creación"
 
 - Asignar docentes a asignaturas y grupos
 
-![MR-13]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-13.png")
+![MR-13]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-13.png")
 
 ```plantuml
 @startuml
@@ -934,7 +934,7 @@ ControladorAsignacion --> AsignarDocenteUI : "Confirma asignación"
 
 - Consultar asignaturas por curso
 
-![MR-14]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-14.png")
+![MR-14]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-14.png")
 
 ```plantuml
 @startuml
@@ -955,7 +955,7 @@ ControladorAsignatura --> ConsultarAsignaturaUI : "Muestra resultados"
 
 - Registrar notas de los estudiantes
 
-![MR-15]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-15.png")
+![MR-15]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-15.png")
 
 ```plantuml
 @startuml
@@ -976,7 +976,7 @@ ControladorNotas --> RegistrarNotaUI : "Confirma registro"
 
 - Editar notas
 
-![MR-16]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-16.png")
+![MR-16]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-16.png")
 
 ```plantuml
 @startuml
@@ -995,7 +995,7 @@ ControladorNotas --> EditarNotaUI : "Confirma cambios"
 
 - Consultar notas
 
-![MR-17]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-17.png")
+![MR-17]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-17.png")
 
 ```plantuml
 @startuml
@@ -1014,7 +1014,7 @@ ControladorNotas --> ConsultarNotaUI : "Muestra resultados"
 
 - Generar reportes de notas
 
-![MR-18]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-18.png")
+![MR-18]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-18.png")
 
 ```plantuml
 @startuml
@@ -1033,7 +1033,7 @@ ControladorReportes --> GenerarReporteUI : "Genera y muestra reporte"
 
 - Registrar asistencia de los estudiantes
 
-![MR-19]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-19.png")
+![MR-19]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-19.png")
 
 ```plantuml
 @startuml
@@ -1054,7 +1054,7 @@ ControladorAsistencia --> RegistrarAsistenciaUI : "Confirma registro"
 
 - Editar asistencias
 
-![MR-20]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-20.png")
+![MR-20]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-20.png")
 
 ```plantuml
 @startuml
@@ -1073,7 +1073,7 @@ ControladorAsistencia --> EditarAsistenciaUI : "Confirma cambios"
 
 - Consultar asistencia
 
-![MR-21]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/MR-21.png")
+![MR-21]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-21.png")
 
 ```plantuml
 @startuml
@@ -1096,7 +1096,7 @@ Cada diagrama está diseñado para representar las interacciones entre los objet
 
 - Iniciar sesión
 
-![DS-01]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-01.png")
+![DS-01]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-01.png")
 
 ```plantuml
 @startuml
@@ -1116,7 +1116,7 @@ LoginUI --> Usuario : Muestra resultado
 
 - Cerrar sesión
 
-![DS-02]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-02.png")
+![DS-02]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-02.png")
 
 ```plantuml
 @startuml
@@ -1136,7 +1136,7 @@ LogoutUI --> Usuario : Muestra confirmación
 
 - Cambiar contraseña
 
-![DS-03]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-03.png")
+![DS-03]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-03.png")
 
 ```plantuml
 @startuml
@@ -1156,7 +1156,7 @@ CambiarContraseñaUI --> Usuario : Muestra confirmación
 
 - Crear usuarios
 
-![DS-04]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-04.png")
+![DS-04]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-04.png")
 
 ```plantuml
 @startuml
@@ -1176,7 +1176,7 @@ CrearUsuarioUI --> Administrador : Muestra confirmación
 
 - Gestionar roles
 
-![DS-05]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-05.png")
+![DS-05]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-05.png")
 
 ```plantuml
 @startuml
@@ -1196,7 +1196,7 @@ GestionarRolesUI --> Administrador : Muestra confirmación
 
 - Eliminar usuarios
 
-![DS-06]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-06.png")
+![DS-06]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-06.png")
 
 ```plantuml
 @startuml
@@ -1216,7 +1216,7 @@ EliminarUsuarioUI --> Administrador : Muestra confirmación
 
 - Registrar estudiante a un curso
 
-![DS-07]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-07.png")
+![DS-07]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-07.png")
 
 ```plantuml
 @startuml
@@ -1236,7 +1236,7 @@ RegistrarEstudianteUI --> Administrador : Muestra confirmación
 
 - Registrar estudiante a un grupo
 
-![DS-08]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-08.png")
+![DS-08]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-08.png")
 
 ```plantuml
 @startuml
@@ -1256,7 +1256,7 @@ RegistrarGrupoUI --> Administrador : Muestra confirmación
 
 - Modificar información de estudiantes
 
-![DS-09]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-09.png")
+![DS-09]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-09.png")
 
 ```plantuml
 @startuml
@@ -1276,7 +1276,7 @@ ModificarEstudianteUI --> Administrador : Muestra confirmación
 
 - Solicitar actualización de información
 
-![DS-10]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-10.png")
+![DS-10]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-10.png")
 
 ```plantuml
 @startuml
@@ -1296,7 +1296,7 @@ SolicitarActualizacionUI --> Usuario : Muestra confirmación
 
 - Consultar información de estudiantes
 
-![DS-11]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-11.png")
+![DS-11]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-11.png")
 
 ```plantuml
 @startuml
@@ -1316,7 +1316,7 @@ ConsultarEstudianteUI --> Usuario : Muestra información
 
 - Registrar asignaturas
 
-![DS-12]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-12.png")
+![DS-12]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-12.png")
 
 ```plantuml
 @startuml
@@ -1336,7 +1336,7 @@ RegistrarAsignaturaUI --> Administrador : Muestra confirmación
 
 - Asignar docentes a asignaturas y grupos
 
-![DS-13]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-13.png")
+![DS-13]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-13.png")
 
 ```plantuml
 @startuml
@@ -1356,7 +1356,7 @@ AsignarDocenteUI --> Administrador : Muestra confirmación
 
 - Consultar asignaturas por curso
 
-![DS-14]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-14.png")
+![DS-14]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-14.png")
 
 ```plantuml
 @startuml
@@ -1376,7 +1376,7 @@ ConsultarAsignaturaUI --> Usuario : Muestra información
 
 - Registrar notas de los estudiantes
 
-![DS-15]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-15.png")
+![DS-15]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-15.png")
 
 ```plantuml
 @startuml
@@ -1396,7 +1396,7 @@ RegistrarNotaUI --> Docente : Muestra confirmación
 
 - Editar notas
 
-![DS-16]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-16.png")
+![DS-16]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-16.png")
 
 ```plantuml
 @startuml
@@ -1416,7 +1416,7 @@ EditarNotaUI --> Docente : Muestra confirmación
 
 - Consultar notas
 
-![DS-17]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-17.png")
+![DS-17]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-17.png")
 
 ```plantuml
 @startuml
@@ -1436,7 +1436,7 @@ ConsultarNotaUI --> Usuario : Muestra notas
 
 - Generar reportes de notas
 
-![DS-18]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-18.png")
+![DS-18]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-18.png")
 
 ```plantuml
 @startuml
@@ -1456,7 +1456,7 @@ GenerarReporteUI --> Usuario : Muestra reporte
 
 - Registrar asistencia de los estudiantes
 
-![DS-19]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-19.png")
+![DS-19]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-19.png")
 
 ```plantuml
 @startuml
@@ -1476,7 +1476,7 @@ RegistrarAsistenciaUI --> Docente : Muestra confirmación
 
 - Editar asistencias
 
-![DS-20]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-20.png")
+![DS-20]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-20.png")
 
 ```plantuml
 @startuml
@@ -1496,7 +1496,7 @@ EditarAsistenciaUI --> Docente : Muestra confirmación
 
 - Consultar asistencia
 
-![DS-21]("https://github.com/AlbeiroBurbanoTobar/SINAC/tree/main/Imágenes/DS-21.png")
+![DS-21]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-21.png")
 
 ```plantuml
 @startuml

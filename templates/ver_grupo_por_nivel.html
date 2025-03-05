@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Ver Grupos por Nivel - SINAC{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Ver Grupos por Nivel</h2>
+
+    <div class="card p-4 shadow-sm mx-auto" style="max-width: 800px;">
+        <h4 class="mb-3">Seleccionar Nivel</h4>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="nivel" class="form-label">Seleccionar Nivel</label>
+                <select name="nivel" id="nivel" class="form-control">
+                    {% for i in niveles %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 mt-3">Ver Grupos</button>
+        </form>
+
+        {% if estudiantes %}
+            <h4 class="mt-4">Estudiantes del Grupo</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Documento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estudiante in estudiantes %}
+                        <tr>
+                            <td>{{ estudiante.usuario.first_name }} {{ estudiante.usuario.last_name }}</td>
+                            <td>{{ estudiante.documento }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% if profesores %}
+            <h4 class="mt-4">Profesores del Grupo</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                    
+                        <th>Documento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for profesor in profesores %}
+                        <tr>
+                            <td>{{ profesor.usuario.first_name }} {{ profesor.usuario.last_name }}</td>
+           
+                            <td>{{ profesor.documento }}</td>  
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+
+    <div class="mt-3 text-center">
+        <a href="{% url 'home_admin' %}" class="btn btn-secondary">Volver al Home</a>
+    </div>
+</div>
+{% endblock %}

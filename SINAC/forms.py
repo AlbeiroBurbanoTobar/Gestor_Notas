@@ -123,3 +123,6 @@ class VincularAsignaturasGrupoForm(forms.Form):
         required=True,
         label="Seleccionar Asignaturas"
     )
+
+class SeleccionarNivelForm(forms.Form):
+    nivel = forms.ChoiceField(choices=[(i, str(i)) for i in range(1, 12)], label="Seleccionar Nivel")

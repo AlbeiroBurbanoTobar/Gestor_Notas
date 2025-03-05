@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import Usuario, Estudiante, Profesor
 from .forms import ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm, AsignarEstudiantesGrupoForm, VincularAsignaturasGrupoForm
-from SINAC.models import Curso
+from SINAC.models import Grupo
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
@@ -200,4 +200,25 @@ def vincular_asignaturas_a_grupo(request):
 
     return render(request, 'vincular_asignaturas.html', {'form': form})
 
+
+@login_required
+@user_passes_test(es_admin)
+def ver_grupo_por_nivel(request):
+    if request.method == "POST":
+        nivel = request.POST.get('nivel')
+        grupos = Grupo.objects.filter(nivel=nivel)
+
+        # Obtener los estudiantes por grupo
+        estudiantes = Estudiante.objects.filter(grupo__in=grupos)
+
+        # Obtener los profesores y sus asignaturas correspondientes al grupo
+        profesores = Profesor.objects.filter(asignatura__grupo__in=grupos)
+
+        return render(request, 'ver_grupo_por_nivel.html', {
+            'estudiantes': estudiantes,
+            'profesores': profesores,
+            'nivel': nivel
+        })
+    else:
+        return render(request, 'ver_grupo_por_nivel.html', {'niveles': range(1, 12)})
 

@@ -72,7 +72,6 @@ class EstudianteForm(UserCreationForm):  # Heredamos de UserCreationForm para in
 
 class ProfesorForm(UserCreationForm):
     direccion = forms.CharField(max_length=255)
-    asignatura = forms.CharField(max_length=100)
     fecha_nacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     telefono = forms.CharField(max_length=15)
 

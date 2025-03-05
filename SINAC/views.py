@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required,  user_passes_test
 from .models import Usuario, Estudiante
-from .forms import EstudianteForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Usuario, Estudiante, Profesor
-from .forms import ProfesorForm
+from .forms import ProfesorForm, AsignaturaForm, EstudianteForm
 from SINAC.models import Curso
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+
 
 User = get_user_model()
 
@@ -118,3 +118,21 @@ def registrar_profesor(request):
     else:
         form = ProfesorForm()
     return render(request, 'registrar_profesor.html', {'form': form})
+
+
+@login_required
+@user_passes_test(es_admin)  # Solo el administrador puede acceder
+def crear_asignatura(request):
+    if request.method == "POST":
+        form = AsignaturaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Asignatura creada exitosamente.")
+            
+        else:
+            messages.error(request, "Error al crear la asignatura. Verifica los datos.")
+    else:
+        form = AsignaturaForm()
+
+    return render(request, 'crear_asignatura.html', {'form': form})
+

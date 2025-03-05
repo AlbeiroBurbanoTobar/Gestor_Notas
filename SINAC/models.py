@@ -51,3 +51,9 @@ class Nota(models.Model):
 
     def __str__(self):
         return f"{self.estudiante.usuario.first_name} {self.estudiante.usuario.last_name} - {self.curso.nombre}: {self.calificacion}"
+
+class Asignatura(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)  
+    def __str__(self):
+        return f"{self.nombre} - {self.profesor.usuario.first_name} {self.profesor.usuario.last_name}"

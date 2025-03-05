@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Usuario, Estudiante, Profesor
-from .forms import ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm, AsignarEstudiantesGrupoForm
+from .forms import ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm, AsignarEstudiantesGrupoForm, VincularAsignaturasGrupoForm
 from SINAC.models import Curso
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -176,4 +176,28 @@ def asignar_estudiantes_a_grupo(request):
         form = AsignarEstudiantesGrupoForm()
 
     return render(request, 'asignar_estudiantes.html', {'form': form})
+
+
+@login_required
+@user_passes_test(es_admin) 
+def vincular_asignaturas_a_grupo(request):
+    if request.method == "POST":
+        form = VincularAsignaturasGrupoForm(request.POST)
+        if form.is_valid():
+            grupo = form.cleaned_data['grupo']
+            asignaturas = form.cleaned_data['asignaturas']
+
+            for asignatura in asignaturas:
+                asignatura.grupo = grupo
+                asignatura.save()
+
+            messages.success(request, "Asignaturas vinculadas correctamente al grupo.")
+            
+        else:
+            messages.error(request, "Error al vincular asignaturas. Verifica los datos.")
+    else:
+        form = VincularAsignaturasGrupoForm()
+
+    return render(request, 'vincular_asignaturas.html', {'form': form})
+
 

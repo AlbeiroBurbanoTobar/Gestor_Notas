@@ -55,16 +55,17 @@ class Nota(models.Model):
 
 class Asignatura(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
-    profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)  
+    profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
+    grupo = models.ForeignKey('Grupo', on_delete=models.SET_NULL, null=True, blank=True)  
     def __str__(self):
         return f"{self.nombre} - {self.profesor.usuario.first_name} {self.profesor.usuario.last_name}"
     
 
 class Grupo(models.Model):
-    NIVELES = [(i, str(i)) for i in range(1, 12)]  # Niveles de 1 a 11
+    NIVELES = [(i, str(i)) for i in range(1, 12)] 
 
     nombre = models.CharField(max_length=100, unique=True)
-    nivel = models.IntegerField(choices=NIVELES)  # Nivel entre 1 y 11
+    nivel = models.IntegerField(choices=NIVELES)  
 
     def __str__(self):
         return f"{self.nombre} - Nivel {self.nivel}"

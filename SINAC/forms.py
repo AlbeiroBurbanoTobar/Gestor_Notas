@@ -114,3 +114,12 @@ class AsignarEstudiantesGrupoForm(forms.Form):
         required=True,
         label="Seleccionar Estudiantes"
     )
+
+class VincularAsignaturasGrupoForm(forms.Form):
+    grupo = forms.ModelChoiceField(queryset=Grupo.objects.all(), label="Seleccionar Grupo")
+    asignaturas = forms.ModelMultipleChoiceField(
+        queryset=Asignatura.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
+        label="Seleccionar Asignaturas"
+    )

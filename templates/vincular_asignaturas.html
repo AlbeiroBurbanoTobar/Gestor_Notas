@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Vincular Asignaturas a Grupo - SINAC{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Vincular Asignaturas a un Grupo</h2>
+
+    <div class="card p-4 shadow-sm mx-auto" style="max-width: 800px;">
+        <h4 class="mb-3">Selecciona un Grupo y las Asignaturas</h4>
+
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="id_grupo" class="form-label">Seleccionar Grupo</label>
+                <select name="grupo" id="id_grupo" class="form-control">
+                    {% for grupo in form.grupo.field.queryset %}
+                        <option value="{{ grupo.id }}">{{ grupo.nombre }} - Nivel {{ grupo.nivel }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <h5>Seleccionar Asignaturas</h5>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Seleccionar</th>
+                        <th>Asignatura</th>
+                        <th>Profesor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for asignatura in form.asignaturas.field.queryset %}
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="asignaturas" value="{{ asignatura.id }}">
+                            </td>
+                            <td>{{ asignatura.nombre }}</td>
+                            <td>{{ asignatura.profesor.usuario.first_name }} {{ asignatura.profesor.usuario.last_name }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <button type="submit" class="btn btn-success w-100 mt-3">Vincular Asignaturas</button>
+        </form>
+    </div>
+
+    <div class="mt-3 text-center">
+        <a href="{% url 'home_admin' %}" class="btn btn-secondary">Volver al Home</a>
+    </div>
+</div>
+{% endblock %}

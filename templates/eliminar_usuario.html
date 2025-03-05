@@ -1,0 +1,21 @@
+{% extends 'base.html' %}  {# Assuming you have a base template #}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h2 class="mb-0">Eliminar Usuario</h2>
+        </div>
+        <div class="card-body">
+            <p class="card-text">¿Estás seguro de que deseas eliminar al usuario <strong>{{ usuario.username }}</strong>?</p>
+            <p class="text-danger">Esta acción no se puede deshacer.</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                <a href="{% url 'listar_usuarios' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

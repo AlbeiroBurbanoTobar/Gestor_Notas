@@ -15,22 +15,22 @@ class Usuario(AbstractUser):
     rol = models.CharField(max_length=20, choices=ROLES, default=ESTUDIANTE)
 
 class Curso(models.Model):
-    nombre = models.CharField(max_length=100)
-    codigo = models.CharField(max_length=10, unique=True)
+    nombre = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.nombre
 
+
 class Estudiante(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE,  null=True, blank=True)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, null=True, blank=True)
     documento = models.CharField(max_length=20, unique=True, default="0000000000")
     fecha_nacimiento = models.DateField()
+    telefono_acudiente = models.CharField(max_length=15, default="0000000000")
     direccion = models.CharField(max_length=255, default="Sin dirección")
-    telefono_acudiente = models.CharField(max_length=15, default="0000000000")  # Se agrega un valor predeterminado
-    curso = models.ForeignKey(Curso, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return f"{self.usuario.first_name} {self.usuario.last_name} - Curso {self.curso.nombre}"
+        return f"{self.usuario.first_name} {self.usuario.last_name}"
+
 
 class Profesor(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
@@ -38,6 +38,7 @@ class Profesor(models.Model):
     asignatura = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField()
     telefono = models.CharField(max_length=15)
+    correo = models.EmailField(unique=True, default="default@example.com", blank=True)
 
     def __str__(self):
         return f"{self.usuario.first_name} {self.usuario.last_name} - {self.asignatura}"

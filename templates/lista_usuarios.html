@@ -1,0 +1,45 @@
+{% extends 'base.html' %}  {# Assuming you have a base template #}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Gestión de Usuarios</h2>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre de Usuario</th>
+                <th>Nombre Completo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                <td>
+                    {% if usuario.rol == 'ADMINISTRADOR' %}Administrador
+                    {% elif usuario.rol == 'ESTUDIANTE' %}Estudiante
+                    {% elif usuario.rol == 'profesor' %}Profesor
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="btn btn-danger btn-sm">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

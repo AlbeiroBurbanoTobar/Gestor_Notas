@@ -53,12 +53,6 @@ class EstudianteForm(UserCreationForm):  # Heredamos de UserCreationForm para in
         if commit:
             user.save()
             
-            # Convertir el número ingresado en una instancia de Curso
-            curso_id = self.cleaned_data['curso']
-            try:
-                curso = Curso.objects.get(id=curso_id)
-            except Curso.DoesNotExist:
-                raise ValueError(f"El curso con ID {curso_id} no existe.")
 
             estudiante = Estudiante.objects.create(
                 usuario=user,
@@ -66,14 +60,15 @@ class EstudianteForm(UserCreationForm):  # Heredamos de UserCreationForm para in
                 fecha_nacimiento=self.cleaned_data['fecha_nacimiento'],
                 direccion=self.cleaned_data['direccion'],
                 telefono_acudiente=self.cleaned_data['telefono_acudiente'],
-                curso=curso  # Ahora es una instancia de Curso
+        
             )
 
-
 class ProfesorForm(UserCreationForm):
-    direccion = forms.CharField(max_length=255)
-    fecha_nacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    telefono = forms.CharField(max_length=15)
+    direccion = forms.CharField(max_length=255, required=True)
+    fecha_nacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), required=True)
+    telefono = forms.CharField(max_length=15, required=True)
+    documento = forms.CharField(max_length=20, required=True, label="Documento de Identidad")  
+    email = forms.EmailField(required=True, label="Correo Electrónico")  
 
     class Meta:
         model = Usuario
@@ -81,9 +76,16 @@ class ProfesorForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.rol = Usuario.PROFESOR  
+        user.rol = Usuario.PROFESOR
+        user.email = self.cleaned_data['email']
         if commit:
             user.save()
+            Profesor.objects.create(
+                usuario=user,
+                direccion=self.cleaned_data['direccion'],
+                fecha_nacimiento=self.cleaned_data['fecha_nacimiento'],
+                telefono=self.cleaned_data['telefono'],
+                documento=self.cleaned_data['documento'],
+                email=self.cleaned_data['email'],
+            )
         return user
-    
-

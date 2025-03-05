@@ -35,13 +35,14 @@ class Estudiante(models.Model):
 class Profesor(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
     direccion = models.CharField(max_length=255)
-    asignatura = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField()
     telefono = models.CharField(max_length=15)
-    correo = models.EmailField(unique=True, default="default@example.com", blank=True)
+    documento = models.CharField(max_length=20, unique=True)  
+    email = models.EmailField(unique=True)  
 
     def __str__(self):
-        return f"{self.usuario.first_name} {self.usuario.last_name} - {self.asignatura}"
+        return f"{self.usuario.first_name} {self.usuario.last_name}"
+
 
 class Nota(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)

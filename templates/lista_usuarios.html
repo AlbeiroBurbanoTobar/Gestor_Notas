@@ -1,4 +1,4 @@
-{% extends 'base.html' %}  {# Assuming you have a base template #}
+{% extends 'base.html' %}  
 
 {% block content %}
 <div class="container mt-5">
@@ -18,6 +18,7 @@
                 <th>Nombre de Usuario</th>
                 <th>Nombre Completo</th>
                 <th>Rol</th>
+                <th>Documento de Identidad</th>  <!-- Nueva columna -->
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -33,6 +34,15 @@
                     {% endif %}
                 </td>
                 <td>
+                    {% if usuario.rol == 'ESTUDIANTE' %}
+                        {{ usuario.estudiante.documento }}
+                    {% elif usuario.rol == 'profesor' %}
+                        {{ usuario.profesor.documento }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </td>
+                <td>
                     <a href="{% url 'eliminar_usuario' usuario.id %}" class="btn btn-danger btn-sm">
                         Eliminar
                     </a>
@@ -41,5 +51,6 @@
             {% endfor %}
         </tbody>
     </table>
+    <a href="{% url 'home_admin' %}" class="btn btn-secondary mt-3">Volver al Home</a>
 </div>
 {% endblock %}

@@ -27,6 +27,7 @@ class Estudiante(models.Model):
     fecha_nacimiento = models.DateField()
     telefono_acudiente = models.CharField(max_length=15, default="0000000000")
     direccion = models.CharField(max_length=255, default="Sin dirección")
+    grupo = models.ForeignKey('Grupo', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f"{self.usuario.first_name} {self.usuario.last_name}"

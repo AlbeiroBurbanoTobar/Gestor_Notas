@@ -100,8 +100,17 @@ class AsignaturaForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['profesor'].queryset = Profesor.objects.all() 
 
-        
+
 class GrupoForm(forms.ModelForm):
     class Meta:
         model = Grupo
         fields = ['nombre', 'nivel'] 
+
+class AsignarEstudiantesGrupoForm(forms.Form):
+    grupo = forms.ModelChoiceField(queryset=Grupo.objects.all(), label="Seleccionar Grupo")
+    estudiantes = forms.ModelMultipleChoiceField(
+        queryset=Estudiante.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
+        label="Seleccionar Estudiantes"
+    )

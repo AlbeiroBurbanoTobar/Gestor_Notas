@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Usuario, Estudiante, Profesor
-from .forms import ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm
+from .forms import ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm, AsignarEstudiantesGrupoForm
 from SINAC.models import Curso
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -24,7 +24,7 @@ def registrar_estudiante(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Estudiante registrado correctamente.")
-            return redirect("home_admin")  # Redirigir al panel del administrador
+            
         else:
             messages.error(request, "Error al registrar el estudiante. Verifica los datos.")
     else:
@@ -52,7 +52,7 @@ def home(request):
         return redirect('home_admin')
     elif request.user.rol == Usuario.ESTUDIANTE:
         return redirect('home_estudiante')
-    return redirect('login')  # En caso de que no tenga rol asignado
+    return redirect('login') 
 
 @login_required
 def home_admin(request):
@@ -114,14 +114,14 @@ def registrar_profesor(request):
             
         else:
             messages.error(request, "Error al registrar el profesor. Verifica los datos ingresados.")
-            print(form.errors)  # Esto imprimirá errores en la consola para depuración
+            print(form.errors) 
     else:
         form = ProfesorForm()
     return render(request, 'registrar_profesor.html', {'form': form})
 
 
 @login_required
-@user_passes_test(es_admin)  # Solo el administrador puede acceder
+@user_passes_test(es_admin) 
 def crear_asignatura(request):
     if request.method == "POST":
         form = AsignaturaForm(request.POST)
@@ -138,18 +138,42 @@ def crear_asignatura(request):
 
 
 @login_required
-@user_passes_test(es_admin)  # Solo el administrador puede acceder
+@user_passes_test(es_admin) 
 def crear_grupo(request):
     if request.method == "POST":
         form = GrupoForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Grupo creado exitosamente.")
-            return redirect('home_admin')  # Redirigir al panel de administración
+            return redirect('home_admin') 
         else:
             messages.error(request, "Error al crear el grupo. Verifica los datos.")
     else:
         form = GrupoForm()
 
     return render(request, 'crear_grupo.html', {'form': form})
+
+
+@login_required
+@user_passes_test(es_admin) 
+def asignar_estudiantes_a_grupo(request):
+    if request.method == "POST":
+        form = AsignarEstudiantesGrupoForm(request.POST)
+        if form.is_valid():
+            grupo = form.cleaned_data['grupo']
+            estudiantes = form.cleaned_data['estudiantes']
+
+      
+            for estudiante in estudiantes:
+                estudiante.grupo = grupo
+                estudiante.save()
+
+            messages.success(request, "Estudiantes asignados correctamente al grupo.")
+            
+        else:
+            messages.error(request, "Error al asignar estudiantes. Verifica los datos.")
+    else:
+        form = AsignarEstudiantesGrupoForm()
+
+    return render(request, 'asignar_estudiantes.html', {'form': form})
 

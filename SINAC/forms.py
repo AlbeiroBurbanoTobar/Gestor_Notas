@@ -4,7 +4,7 @@ from .models import Usuario, Estudiante, Curso
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Usuario, Estudiante, Asignatura, Profesor
+from .models import Usuario, Estudiante, Asignatura, Profesor, Grupo
 
 class EstudianteForm(UserCreationForm):  # Heredamos de UserCreationForm para incluir usuario y contraseña
     documento = forms.CharField(max_length=20, required=True, label="Documento de Identidad")
@@ -94,8 +94,14 @@ class ProfesorForm(UserCreationForm):
 class AsignaturaForm(forms.ModelForm):
     class Meta:
         model = Asignatura
-        fields = ['nombre', 'profesor']  # Campos que se mostrarán
+        fields = ['nombre', 'profesor']  
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['profesor'].queryset = Profesor.objects.all()  # Solo mostrar profesores registrados
+        self.fields['profesor'].queryset = Profesor.objects.all() 
+
+        
+class GrupoForm(forms.ModelForm):
+    class Meta:
+        model = Grupo
+        fields = ['nombre', 'nivel'] 

@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Usuario, Estudiante, Profesor
-from .forms import ProfesorForm, AsignaturaForm, EstudianteForm
+from .forms import ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm
 from SINAC.models import Curso
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -135,4 +135,21 @@ def crear_asignatura(request):
         form = AsignaturaForm()
 
     return render(request, 'crear_asignatura.html', {'form': form})
+
+
+@login_required
+@user_passes_test(es_admin)  # Solo el administrador puede acceder
+def crear_grupo(request):
+    if request.method == "POST":
+        form = GrupoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Grupo creado exitosamente.")
+            return redirect('home_admin')  # Redirigir al panel de administración
+        else:
+            messages.error(request, "Error al crear el grupo. Verifica los datos.")
+    else:
+        form = GrupoForm()
+
+    return render(request, 'crear_grupo.html', {'form': form})
 

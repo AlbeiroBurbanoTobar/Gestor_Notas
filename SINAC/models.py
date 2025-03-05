@@ -57,3 +57,15 @@ class Asignatura(models.Model):
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)  
     def __str__(self):
         return f"{self.nombre} - {self.profesor.usuario.first_name} {self.profesor.usuario.last_name}"
+    
+
+class Grupo(models.Model):
+    NIVELES = [(i, str(i)) for i in range(1, 12)]  # Niveles de 1 a 11
+
+    nombre = models.CharField(max_length=100, unique=True)
+    nivel = models.IntegerField(choices=NIVELES)  # Nivel entre 1 y 11
+
+    def __str__(self):
+        return f"{self.nombre} - Nivel {self.nivel}"
+
+

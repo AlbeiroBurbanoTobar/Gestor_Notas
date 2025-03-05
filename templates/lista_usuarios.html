@@ -1,0 +1,56 @@
+{% extends 'base.html' %}  
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Gestión de Usuarios</h2>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre de Usuario</th>
+                <th>Nombre Completo</th>
+                <th>Rol</th>
+                <th>Documento de Identidad</th>  <!-- Nueva columna -->
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                <td>
+                    {% if usuario.rol == 'ADMINISTRADOR' %}Administrador
+                    {% elif usuario.rol == 'ESTUDIANTE' %}Estudiante
+                    {% elif usuario.rol == 'profesor' %}Profesor
+                    {% endif %}
+                </td>
+                <td>
+                    {% if usuario.rol == 'ESTUDIANTE' %}
+                        {{ usuario.estudiante.documento }}
+                    {% elif usuario.rol == 'profesor' %}
+                        {{ usuario.profesor.documento }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="btn btn-danger btn-sm">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'home_admin' %}" class="btn btn-secondary mt-3">Volver al Home</a>
+</div>
+{% endblock %}

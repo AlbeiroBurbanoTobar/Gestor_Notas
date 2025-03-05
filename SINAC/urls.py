@@ -1,6 +1,5 @@
 from django.urls import path, include
-from .views import home, home_admin, home_estudiante, registrar_estudiante, registrar_profesor
-
+from .views import home, home_admin, home_estudiante, registrar_estudiante, registrar_profesor, eliminar_usuario, lista_usuarios
 
 urlpatterns = [
     path('', home, name="home"),
@@ -9,4 +8,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  
     path('registrar_estudiante/', registrar_estudiante, name='registrar_estudiante'),
     path('registrar_profesor/', registrar_profesor, name='registrar_profesor'),
+    path('usuarios/', lista_usuarios, name='lista_usuarios'),
+    path('eliminar_usuario/<int:usuario_id>/', eliminar_usuario, name='eliminar_usuario'),
 ]
+

@@ -1,8 +1,3 @@
----
-title: Sistema de Información de Notas y Asistencias para Colegios
-author: Albeiro Burbano Tobar & Danilo Isaac García Castaño
-date: Marzo 2025
----
 # Sistema de Información de Notas y Asistencias para Colegios
 Este proyecto tiene como objetivo desarrollar un **Sistema de Información de Notas y Asistencias** para colegios, que permita gestionar de manera eficiente la información académica de los estudiantes, incluyendo notas, asistencias, asignaturas, cursos escolares. El sistema está diseñado para ser utilizado por administradores, docentes y estudiantes, cada uno con roles y permisos específicos.
 
@@ -69,7 +64,7 @@ El sistema incluye los siguientes casos de uso:
 | **Flujo Alternativo:**            | **Credenciales inválidas:** Si las credenciales son incorrectas, el sistema muestra un mensaje de error y solicita que se reintente. |
 | **Poscondiciones:**               | El usuario ha iniciado sesión correctamente. |
 
-![Image](https://github.com/user-attachments/assets/467e07f6-6b30-4601-ba3f-99f0491a8d6b)
+![UC-01](https://github.com/user-attachments/assets/467e07f6-6b30-4601-ba3f-99f0491a8d6b)
 
 ```plantuml
 @startuml
@@ -98,7 +93,7 @@ Usuario -- UC01
 | **Flujo Alternativo:**            | Ninguno. |
 | **Poscondiciones:**               | El usuario ha cerrado sesión correctamente. |
 
-![UC-02]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-02.png")
+![UC-02](https://github.com/user-attachments/assets/122b6b01-9351-444d-a9e7-9ea3a0115407)
 
 ```plantuml
 @startuml
@@ -124,7 +119,7 @@ Usuario -- UC02
 | **Flujo Alternativo:**            | **Contraseña actual incorrecta:** Si la contraseña actual es incorrecta, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La contraseña del usuario ha sido actualizada. |
 
-![UC-03]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-03.png")
+![UC-03](https://github.com/user-attachments/assets/a178d31c-16b5-43c2-9967-d335298b2237)
 
 ```plantuml
 @startuml
@@ -150,7 +145,7 @@ Usuario -- UC03
 | **Flujo Alternativo:**            | **Datos inválidos:** Si los datos ingresados son inválidos, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El nuevo usuario ha sido creado en el sistema. |
 
-![UC-04]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-04.png")
+![UC-04](https://github.com/user-attachments/assets/d0135ba1-5344-43bd-a53b-f672fc903ec6)
 
 ```plantuml
 @startuml
@@ -176,7 +171,7 @@ Administrador -- UC04
 | **Flujo Alternativo:**            | **Rol no válido:** Si el rol seleccionado no es válido, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | Los roles y permisos del usuario han sido actualizados. |
 
-![UC-05]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-05.png")
+![UC-05](https://github.com/user-attachments/assets/c9116f7b-7647-4beb-8142-31e05ea1790f)
 
 ```plantuml
 @startuml
@@ -202,7 +197,7 @@ Administrador -- UC05
 | **Flujo Alternativo:**            | **Cancelar eliminación:** Si el administrador cancela la acción, el sistema no elimina al usuario. |
 | **Poscondiciones:**               | El usuario ha sido eliminado del sistema. |
 
-![UC-06]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-06.png")
+![UC-06](https://github.com/user-attachments/assets/5148d564-6961-412b-b935-384c9dfe5ec6)
 
 ```plantuml
 @startuml
@@ -228,7 +223,7 @@ Administrador -- UC06
 | **Flujo Alternativo:**            | **Curso no disponible:** Si no hay cursos disponibles, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El estudiante ha sido asignado a un curso. |
 
-![UC-07]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-07.png")
+![UC-07](https://github.com/user-attachments/assets/2381ecda-b600-4c4c-859f-43a9d4c85596)
 
 ```plantuml
 @startuml
@@ -254,7 +249,7 @@ Administrador -- UC07
 | **Flujo Alternativo:**            | **Grupo no disponible:** Si no hay grupos disponibles, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El estudiante ha sido asignado a un grupo. |
 
-![UC-08]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-08.png")
+![UC-08](https://github.com/user-attachments/assets/41894c9f-b1bc-4b0d-b0c4-923fc5590554)
 
 ```plantuml
 @startuml
@@ -280,7 +275,7 @@ Administrador -- UC08
 | **Flujo Alternativo:**            | **Datos inválidos:** Si los datos ingresados son inválidos, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La información del estudiante ha sido actualizada. |
 
-![UC-09]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-09.png")
+![UC-09](https://github.com/user-attachments/assets/a6d97e3a-b19a-4e54-b2dd-a7e2b58b4d35)
 
 ```plantuml
 @startuml
@@ -306,7 +301,7 @@ Administrador -- UC09
 | **Flujo Alternativo:**            | **Datos inválidos:** Si los datos ingresados son inválidos, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La solicitud de actualización ha sido enviada. |
 
-![UC-10]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-10.png")
+![UC-10](https://github.com/user-attachments/assets/5d1bfd86-9ae0-4053-a830-16d76e40e0cb)
 
 ```plantuml
 @startuml
@@ -334,7 +329,7 @@ Estudiante -- UC10
 | **Flujo Alternativo:**            | **Estudiante no encontrado:** Si el estudiante no existe, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El usuario ha consultado la información del estudiante. |
 
-![UC-11]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-11.png")
+![UC-11](https://github.com/user-attachments/assets/f5467532-d683-458e-82b3-4e2b43093563)
 
 ```plantuml
 @startuml
@@ -364,7 +359,7 @@ Docente -- UC11
 | **Flujo Alternativo:**            | **Datos inválidos:** Si los datos ingresados son inválidos, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La asignatura ha sido registrada en el sistema. |
 
-![UC-12]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-12.png")
+![UC-12](https://github.com/user-attachments/assets/f7122f05-4ff8-4425-9bc7-01fe5ffc6ace)
 
 ```plantuml
 @startuml
@@ -390,7 +385,7 @@ Administrador -- UC12
 | **Flujo Alternativo:**            | **Docente no disponible:** Si no hay docentes disponibles, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El docente ha sido asignado a la asignatura y grupo. |
 
-![UC-13]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-13.png")
+![UC-13](https://github.com/user-attachments/assets/3fbbb5ad-3b48-4d6a-bc73-33618c6fc75d)
 
 ```plantuml
 @startuml
@@ -415,7 +410,7 @@ Administrador -- UC13
 | **Flujo Alternativo:**            | **Curso no encontrado:** Si el curso no existe, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El usuario ha consultado las asignaturas del curso. |
 
-![UC-14]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-14.png")
+![UC-14](https://github.com/user-attachments/assets/025f8365-d4ce-4be5-8885-9926e8edfbbe)
 
 ```plantuml
 @startuml
@@ -447,7 +442,7 @@ Estudiante -- UC14
 | **Flujo Alternativo:**            | **Notas inválidas:** Si las notas ingresadas están fuera del rango permitido, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | Las notas de los estudiantes han sido registradas. |
 
-![UC-15]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-15.png")
+![UC-15](https://github.com/user-attachments/assets/69b01f76-da0a-47f7-8ef4-032ab49eca4b)
 
 ```plantuml
 @startuml
@@ -473,7 +468,7 @@ Docente -- UC15
 | **Flujo Alternativo:**            | **Notas inválidas:** Si las notas ingresadas están fuera del rango permitido, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | Las notas de los estudiantes han sido actualizadas. |
 
-![UC-16]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-16.png")
+![UC-16](https://github.com/user-attachments/assets/301af601-8c91-45c3-8f17-65c14a23b8a6)
 
 ```plantuml
 @startuml
@@ -499,7 +494,7 @@ Docente -- UC16
 | **Flujo Alternativo:**            | **Notas no disponibles:** Si no hay notas registradas, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El usuario ha consultado las notas correctamente. |
 
-![UC-17]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-17.png")
+![UC-17](https://github.com/user-attachments/assets/d25e4f41-1edf-4cb9-8d57-87dbb0bd413b)
 
 ```plantuml
 @startuml
@@ -526,7 +521,7 @@ Estudiante -- UC17
 | **Flujo Alternativo:**            | **Datos insuficientes:** Si no hay suficientes datos para generar el reporte, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El reporte de notas ha sido generado y está disponible para su consulta. |
 
-![UC-18]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-18.png")
+![UC-18](https://github.com/user-attachments/assets/654bf3b3-4a0d-4088-8806-1a69175e096f)
 
 ```plantuml
 @startuml
@@ -555,7 +550,7 @@ Docente -- UC18
 | **Flujo Alternativo:**            | **Asistencia ya registrada:** Si la asistencia ya fue registrada para esa fecha, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | La asistencia de los estudiantes ha sido registrada. |
 
-![UC-19]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-19.png")
+![UC-19](https://github.com/user-attachments/assets/485f5e05-1c27-4bc7-93c3-abf838fdb9f6)
 
 ```plantuml
 @startuml
@@ -580,7 +575,7 @@ Docente -- UC19
 | **Flujo Alternativo:**            | **Registro no encontrado:** Si no hay registros de asistencia, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | Los registros de asistencia han sido actualizados. |
 
-![UC-20]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-20.png")
+![UC-20](https://github.com/user-attachments/assets/2d2e871f-d24a-45d8-8a74-0700f1a02503)
 
 ```plantuml
 @startuml
@@ -606,7 +601,7 @@ Docente -- UC20
 | **Flujo Alternativo:**            | **Asistencia no disponible:** Si no hay registros de asistencia, el sistema muestra un mensaje de error. |
 | **Poscondiciones:**               | El usuario ha consultado los registros de asistencia. |
 
-![UC-21]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-21.png")
+![UC-21](https://github.com/user-attachments/assets/82e86f9e-1a34-4896-b6a3-031e535f9df3)
 
 ```plantuml
 @startuml

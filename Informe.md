@@ -1,5 +1,9 @@
+---
+title: Sistema de Información de Notas y Asistencias para Colegios
+author: Albeiro Burbano Tobar & Danilo Isaac García Castaño
+date: Marzo 2025
+---
 # Sistema de Información de Notas y Asistencias para Colegios
-
 Este proyecto tiene como objetivo desarrollar un **Sistema de Información de Notas y Asistencias** para colegios, que permita gestionar de manera eficiente la información académica de los estudiantes, incluyendo notas, asistencias, asignaturas, cursos escolares. El sistema está diseñado para ser utilizado por administradores, docentes y estudiantes, cada uno con roles y permisos específicos.
 
 ---
@@ -65,7 +69,7 @@ El sistema incluye los siguientes casos de uso:
 | **Flujo Alternativo:**            | **Credenciales inválidas:** Si las credenciales son incorrectas, el sistema muestra un mensaje de error y solicita que se reintente. |
 | **Poscondiciones:**               | El usuario ha iniciado sesión correctamente. |
 
-![UC-01]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-01.png")
+![UC-01]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-01.jpg")
 
 ```plantuml
 @startuml

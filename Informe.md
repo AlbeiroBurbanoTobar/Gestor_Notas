@@ -625,7 +625,7 @@ Estudiante -- UC21
 
 El modelo de dominio del sistema se representa mediante diagramas UML que describen las relaciones entre las entidades principales, como **Usuario**, **Administrador**, **Docente**, **Estudiante**, **Curso**, **Asignatura**, **Grupo**, **Nota**, **Asistencia** y **Horario**.
 
-![Modelo de Dominio]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/Modelo_de_dominio.png")
+![Modelo de Dominio](https://github.com/user-attachments/assets/a0e85779-95fb-4c3b-97e7-6cd87aa52c6c)
 ```plantuml
 @startuml
 class Usuario {}
@@ -678,7 +678,7 @@ Cada uno de los diagramas de Robustez son por cada caso de uso:
 
 - Iniciar sesión
 
-![MR-01]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-01.png")
+![MR-01](https://github.com/user-attachments/assets/376cd85b-5c77-4f05-86b7-1297ab715813)
 
 ```plantuml
 @startuml
@@ -697,7 +697,7 @@ ControladorAutenticacion --> LoginUI : "Muestra resultado"
 
 - Cerrar sesión
 
-![MR-02]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-02.png")
+![MR-02](https://github.com/user-attachments/assets/eed9c366-f4ee-445e-aa66-603c9c1226e2)
 
 ```plantuml
 @startuml
@@ -716,7 +716,7 @@ ControladorSesion --> LogoutUI : "Confirma cierre"
 
 - Cambiar contraseña
 
-![MR-03]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-03.png")
+![MR-03](https://github.com/user-attachments/assets/eab045ab-36be-4304-88e5-9b46a7d24402)
 
 ```plantuml
 @startuml
@@ -735,7 +735,7 @@ ControladorContraseña --> CambiarContraseñaUI : "Confirma cambio"
 
 - Crear usuarios
 
-![MR-04]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-04.png")
+![MR-04](https://github.com/user-attachments/assets/6638a6b3-ac36-4234-8d80-9f7ce32fe7dd)
 
 ```plantuml
 @startuml
@@ -754,7 +754,7 @@ ControladorUsuario --> CrearUsuarioUI : "Confirma creación"
 
 - Gestionar roles
 
-![MR-05]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-05.png")
+![MR-05](https://github.com/user-attachments/assets/304d0e08-770a-46b7-b1af-98de01296104)
 
 ```plantuml
 @startuml
@@ -773,7 +773,7 @@ ControladorRoles --> GestionarRolesUI : "Confirma operación"
 
 - Eliminar usuarios
 
-![MR-06]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-06.png")
+![MR-06](https://github.com/user-attachments/assets/57840a6d-a2c5-41a9-a8e9-8bc9bfab63a0)
 
 ```plantuml
 @startuml
@@ -792,7 +792,7 @@ ControladorUsuario --> EliminarUsuarioUI : "Confirma eliminación"
 
 - Registrar estudiante a un curso
 
-![MR-07]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-07.png")
+![MR-07](https://github.com/user-attachments/assets/92ec17df-e95a-4867-a69d-6711efdab4d0)
 
 ```plantuml
 @startuml
@@ -813,7 +813,7 @@ ControladorCurso --> RegistrarEstudianteUI : "Confirma registro"
 
 - Registrar estudiante a un grupo
 
-![MR-08]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-08.png")
+![MR-08](https://github.com/user-attachments/assets/7141fda7-70c9-43ab-af31-4faf3e471c85)   
 
 ```plantuml
 @startuml
@@ -834,7 +834,7 @@ ControladorGrupo --> RegistrarGrupoUI : "Confirma registro"
 
 - Modificar información de estudiantes
 
-![MR-09]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-09.png")
+![MR-09](https://github.com/user-attachments/assets/9b1e947f-f3a4-4692-b204-8b23bc6c6799)
 
 ```plantuml
 @startuml
@@ -853,7 +853,7 @@ ControladorEstudiante --> ModificarEstudianteUI : "Confirma cambios"
 
 - Solicitar actualización de información
 
-![MR-10]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-10.png")
+![MR-10](https://github.com/user-attachments/assets/aaed2897-1825-4965-91eb-a82bcaeda603)
 
 ```plantuml
 @startuml
@@ -872,7 +872,7 @@ ControladorSolicitud --> SolicitarActualizacionUI : "Confirma recepción"
 
 - Consultar información de estudiantes
 
-![MR-11]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-11.png")
+![MR-11](https://github.com/user-attachments/assets/f8aa75b4-f6b4-4be5-87fa-6faacfcbf57a)
 
 ```plantuml
 @startuml
@@ -891,7 +891,7 @@ ControladorConsulta --> ConsultarEstudianteUI : "Muestra resultados"
 
 - Registrar asignaturas
 
-![MR-12]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-12.png")
+![MR-12](https://github.com/user-attachments/assets/214fe211-fcda-4129-a3db-15f04db2218b)
 
 ```plantuml
 @startuml
@@ -910,7 +910,7 @@ ControladorAsignatura --> RegistrarAsignaturaUI : "Confirma creación"
 
 - Asignar docentes a asignaturas y grupos
 
-![MR-13]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-13.png")
+![MR-13](https://github.com/user-attachments/assets/5b0acdf0-b761-40cd-8fd2-cc21ec3585f6)
 
 ```plantuml
 @startuml
@@ -933,7 +933,7 @@ ControladorAsignacion --> AsignarDocenteUI : "Confirma asignación"
 
 - Consultar asignaturas por curso
 
-![MR-14]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-14.png")
+![MR-14](https://github.com/user-attachments/assets/a8379970-822c-408f-bd20-6fe485807990)
 
 ```plantuml
 @startuml
@@ -954,7 +954,7 @@ ControladorAsignatura --> ConsultarAsignaturaUI : "Muestra resultados"
 
 - Registrar notas de los estudiantes
 
-![MR-15]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-15.png")
+![MR-15](https://github.com/user-attachments/assets/f14019b7-27b5-4393-a812-d4a0dae7e1df)
 
 ```plantuml
 @startuml
@@ -975,7 +975,7 @@ ControladorNotas --> RegistrarNotaUI : "Confirma registro"
 
 - Editar notas
 
-![MR-16]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-16.png")
+![MR-16](https://github.com/user-attachments/assets/7b208e58-51a4-4457-84a2-65d0e13c05f6)
 
 ```plantuml
 @startuml
@@ -994,7 +994,7 @@ ControladorNotas --> EditarNotaUI : "Confirma cambios"
 
 - Consultar notas
 
-![MR-17]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-17.png")
+![MR-17](https://github.com/user-attachments/assets/5ab56733-9032-42d9-81a8-6a19acd3284d)
 
 ```plantuml
 @startuml
@@ -1013,7 +1013,7 @@ ControladorNotas --> ConsultarNotaUI : "Muestra resultados"
 
 - Generar reportes de notas
 
-![MR-18]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-18.png")
+![MR-18](https://github.com/user-attachments/assets/c6ea1d78-413b-442a-94a7-9305323a9f00)
 
 ```plantuml
 @startuml
@@ -1032,7 +1032,7 @@ ControladorReportes --> GenerarReporteUI : "Genera y muestra reporte"
 
 - Registrar asistencia de los estudiantes
 
-![MR-19]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-19.png")
+![MR-19](https://github.com/user-attachments/assets/4ebb2f49-8f0d-4cf6-8c45-1f0ae4a80cea)
 
 ```plantuml
 @startuml
@@ -1053,7 +1053,7 @@ ControladorAsistencia --> RegistrarAsistenciaUI : "Confirma registro"
 
 - Editar asistencias
 
-![MR-20]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-20.png")
+![MR-20](https://github.com/user-attachments/assets/2fbe25d8-8461-4044-a2cb-2e2c24e3858b)
 
 ```plantuml
 @startuml
@@ -1072,7 +1072,7 @@ ControladorAsistencia --> EditarAsistenciaUI : "Confirma cambios"
 
 - Consultar asistencia
 
-![MR-21]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/MR-21.png")
+![MR-21](https://github.com/user-attachments/assets/db0d9e8d-0ac0-4bbe-a70c-683ab6de0eb4)
 
 ```plantuml
 @startuml
@@ -1095,7 +1095,7 @@ Cada diagrama está diseñado para representar las interacciones entre los objet
 
 - Iniciar sesión
 
-![DS-01]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-01.png")
+![DS-01](https://github.com/user-attachments/assets/11436db9-46d3-41e9-833d-fbcdb0fb96fa)
 
 ```plantuml
 @startuml
@@ -1115,7 +1115,7 @@ LoginUI --> Usuario : Muestra resultado
 
 - Cerrar sesión
 
-![DS-02]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-02.png")
+![DS-02](https://github.com/user-attachments/assets/4f2b3ec5-6979-435d-868f-7cd2eb4eab5e)
 
 ```plantuml
 @startuml
@@ -1135,7 +1135,7 @@ LogoutUI --> Usuario : Muestra confirmación
 
 - Cambiar contraseña
 
-![DS-03]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-03.png")
+![DS-03](https://github.com/user-attachments/assets/e7f5309d-4e1a-4057-92f2-123cd1ea6b2d)
 
 ```plantuml
 @startuml
@@ -1155,7 +1155,7 @@ CambiarContraseñaUI --> Usuario : Muestra confirmación
 
 - Crear usuarios
 
-![DS-04]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-04.png")
+![DS-04](https://github.com/user-attachments/assets/0c395e59-f12c-44b0-9eeb-228ea9e62ec9)
 
 ```plantuml
 @startuml
@@ -1175,7 +1175,7 @@ CrearUsuarioUI --> Administrador : Muestra confirmación
 
 - Gestionar roles
 
-![DS-05]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-05.png")
+![DS-05](https://github.com/user-attachments/assets/b8cf4c6c-fcb8-4b23-9c8c-11a611cbf5d2)
 
 ```plantuml
 @startuml
@@ -1195,7 +1195,7 @@ GestionarRolesUI --> Administrador : Muestra confirmación
 
 - Eliminar usuarios
 
-![DS-06]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-06.png")
+![DS-06](https://github.com/user-attachments/assets/f209dafd-af87-46e1-b313-55fe7dad4704)
 
 ```plantuml
 @startuml
@@ -1215,7 +1215,7 @@ EliminarUsuarioUI --> Administrador : Muestra confirmación
 
 - Registrar estudiante a un curso
 
-![DS-07]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-07.png")
+![DS-07](https://github.com/user-attachments/assets/6bceb1d1-4a36-4f07-8de4-a4f772b9b51d)
 
 ```plantuml
 @startuml
@@ -1235,7 +1235,7 @@ RegistrarEstudianteUI --> Administrador : Muestra confirmación
 
 - Registrar estudiante a un grupo
 
-![DS-08]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-08.png")
+![DS-08](https://github.com/user-attachments/assets/c2db5cc6-bfba-441c-b478-0cb6c43cbd22)
 
 ```plantuml
 @startuml
@@ -1255,7 +1255,7 @@ RegistrarGrupoUI --> Administrador : Muestra confirmación
 
 - Modificar información de estudiantes
 
-![DS-09]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-09.png")
+![DS-09](https://github.com/user-attachments/assets/7ee5ec22-ade5-444d-9245-1f7b5e872a3f)
 
 ```plantuml
 @startuml
@@ -1275,7 +1275,7 @@ ModificarEstudianteUI --> Administrador : Muestra confirmación
 
 - Solicitar actualización de información
 
-![DS-10]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-10.png")
+![DS-10](https://github.com/user-attachments/assets/d10f8eea-76d3-4d68-a5e9-7e52faf4ad8a)
 
 ```plantuml
 @startuml
@@ -1295,7 +1295,7 @@ SolicitarActualizacionUI --> Usuario : Muestra confirmación
 
 - Consultar información de estudiantes
 
-![DS-11]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-11.png")
+![DS-11](https://github.com/user-attachments/assets/49ba499d-bd5e-444c-a153-7e8e52fa7cd7)
 
 ```plantuml
 @startuml
@@ -1315,7 +1315,7 @@ ConsultarEstudianteUI --> Usuario : Muestra información
 
 - Registrar asignaturas
 
-![DS-12]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-12.png")
+![DS-12](https://github.com/user-attachments/assets/f5a02b2d-b5d6-4274-adb7-0aa835b451b4)
 
 ```plantuml
 @startuml
@@ -1335,7 +1335,7 @@ RegistrarAsignaturaUI --> Administrador : Muestra confirmación
 
 - Asignar docentes a asignaturas y grupos
 
-![DS-13]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-13.png")
+![DS-13](https://github.com/user-attachments/assets/6481aadf-b517-4a0b-ac5e-e6d536b5d9d4)
 
 ```plantuml
 @startuml
@@ -1355,7 +1355,7 @@ AsignarDocenteUI --> Administrador : Muestra confirmación
 
 - Consultar asignaturas por curso
 
-![DS-14]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-14.png")
+![DS-14](https://github.com/user-attachments/assets/e7699a5a-b7eb-4241-8f56-3339c467eeff)
 
 ```plantuml
 @startuml
@@ -1375,7 +1375,7 @@ ConsultarAsignaturaUI --> Usuario : Muestra información
 
 - Registrar notas de los estudiantes
 
-![DS-15]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-15.png")
+![DS-15](https://github.com/user-attachments/assets/083f8af8-1531-4e60-bd7a-3ff535ae647e)
 
 ```plantuml
 @startuml
@@ -1395,7 +1395,7 @@ RegistrarNotaUI --> Docente : Muestra confirmación
 
 - Editar notas
 
-![DS-16]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-16.png")
+![DS-16](https://github.com/user-attachments/assets/2869b18b-aaa3-4f6a-9507-801baef82883)
 
 ```plantuml
 @startuml
@@ -1415,7 +1415,7 @@ EditarNotaUI --> Docente : Muestra confirmación
 
 - Consultar notas
 
-![DS-17]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-17.png")
+![DS-17](https://github.com/user-attachments/assets/8ed83e22-c9c8-47c7-b971-4176728c00f5)
 
 ```plantuml
 @startuml
@@ -1435,7 +1435,7 @@ ConsultarNotaUI --> Usuario : Muestra notas
 
 - Generar reportes de notas
 
-![DS-18]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-18.png")
+![DS-18](https://github.com/user-attachments/assets/393d7acb-1467-40fa-ac5b-c1e0ec7362e3)
 
 ```plantuml
 @startuml
@@ -1455,7 +1455,7 @@ GenerarReporteUI --> Usuario : Muestra reporte
 
 - Registrar asistencia de los estudiantes
 
-![DS-19]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-19.png")
+![DS-19](https://github.com/user-attachments/assets/1c4353be-4763-45a7-8621-5433725aa66f)
 
 ```plantuml
 @startuml
@@ -1475,7 +1475,7 @@ RegistrarAsistenciaUI --> Docente : Muestra confirmación
 
 - Editar asistencias
 
-![DS-20]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-20.png")
+![DS-20](https://github.com/user-attachments/assets/a6f1cd2e-f749-4b70-95af-999b68a096db)
 
 ```plantuml
 @startuml
@@ -1495,7 +1495,7 @@ EditarAsistenciaUI --> Docente : Muestra confirmación
 
 - Consultar asistencia
 
-![DS-21]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/DS-21.png")
+![DS-21](https://github.com/user-attachments/assets/f5c5deee-4c40-4817-85f6-7821a81134da)
 
 ```plantuml
 @startuml

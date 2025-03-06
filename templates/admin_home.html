@@ -13,6 +13,14 @@
     <div class="mb-3">
         <a href="{% url 'registrar_estudiante' %}" class="btn btn-primary">Registrar Estudiante</a>
         <a href="{% url 'registrar_profesor' %}" class="btn btn-success">Registrar Profesor</a>
+        <a href="{% url 'crear_asignatura' %}" class="btn btn-warning">Crear Asignatura</a>
+        <a href="{% url 'crear_grupo' %}" class="btn btn-info">Crear Grupo</a>  
+        <a href="{% url 'asignar_estudiantes' %}" class="btn btn-primary">Asignar Estudiantes a Grupo</a>
+        <a href="{% url 'vincular_asignaturas' %}" class="btn btn-warning">Vincular Asignaturas a Grupo</a>  <!-- 🔥 Nuevo botón agregado -->
+        <a href="{% url 'ver_grupo_por_nivel' %}" class="btn btn-info">Ver Grupos por Nivel</a>
+
+
+        
     </div>
 
     <form action="{% url 'logout' %}" method="post">

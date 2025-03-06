@@ -4,7 +4,7 @@ from .models import Usuario, Estudiante, Curso
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Usuario, Estudiante, Curso, Profesor
+from .models import Usuario, Estudiante, Asignatura, Profesor, Grupo
 
 class EstudianteForm(UserCreationForm):  # Heredamos de UserCreationForm para incluir usuario y contraseña
     documento = forms.CharField(max_length=20, required=True, label="Documento de Identidad")
@@ -89,3 +89,40 @@ class ProfesorForm(UserCreationForm):
                 email=self.cleaned_data['email'],
             )
         return user
+
+
+class AsignaturaForm(forms.ModelForm):
+    class Meta:
+        model = Asignatura
+        fields = ['nombre', 'profesor']  
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['profesor'].queryset = Profesor.objects.all() 
+
+
+class GrupoForm(forms.ModelForm):
+    class Meta:
+        model = Grupo
+        fields = ['nombre', 'nivel'] 
+
+class AsignarEstudiantesGrupoForm(forms.Form):
+    grupo = forms.ModelChoiceField(queryset=Grupo.objects.all(), label="Seleccionar Grupo")
+    estudiantes = forms.ModelMultipleChoiceField(
+        queryset=Estudiante.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
+        label="Seleccionar Estudiantes"
+    )
+
+class VincularAsignaturasGrupoForm(forms.Form):
+    grupo = forms.ModelChoiceField(queryset=Grupo.objects.all(), label="Seleccionar Grupo")
+    asignaturas = forms.ModelMultipleChoiceField(
+        queryset=Asignatura.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
+        label="Seleccionar Asignaturas"
+    )
+
+class SeleccionarNivelForm(forms.Form):
+    nivel = forms.ChoiceField(choices=[(i, str(i)) for i in range(1, 12)], label="Seleccionar Nivel")

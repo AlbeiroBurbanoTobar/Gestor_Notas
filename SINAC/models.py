@@ -27,6 +27,7 @@ class Estudiante(models.Model):
     fecha_nacimiento = models.DateField()
     telefono_acudiente = models.CharField(max_length=15, default="0000000000")
     direccion = models.CharField(max_length=255, default="Sin dirección")
+    grupo = models.ForeignKey('Grupo', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f"{self.usuario.first_name} {self.usuario.last_name}"
@@ -51,3 +52,22 @@ class Nota(models.Model):
 
     def __str__(self):
         return f"{self.estudiante.usuario.first_name} {self.estudiante.usuario.last_name} - {self.curso.nombre}: {self.calificacion}"
+
+class Asignatura(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
+    grupo = models.ForeignKey('Grupo', on_delete=models.SET_NULL, null=True, blank=True)  
+    def __str__(self):
+        return f"{self.nombre} - {self.profesor.usuario.first_name} {self.profesor.usuario.last_name}"
+    
+
+class Grupo(models.Model):
+    NIVELES = [(i, str(i)) for i in range(1, 12)] 
+
+    nombre = models.CharField(max_length=100, unique=True)
+    nivel = models.IntegerField(choices=NIVELES)  
+
+    def __str__(self):
+        return f"{self.nombre} - Nivel {self.nivel}"
+
+

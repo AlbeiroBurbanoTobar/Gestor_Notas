@@ -69,7 +69,7 @@ El sistema incluye los siguientes casos de uso:
 | **Flujo Alternativo:**            | **Credenciales inválidas:** Si las credenciales son incorrectas, el sistema muestra un mensaje de error y solicita que se reintente. |
 | **Poscondiciones:**               | El usuario ha iniciado sesión correctamente. |
 
-![UC-01]("https://github.com/AlbeiroBurbanoTobar/Gestor_Notas/blob/main/Imágenes/UC-01.jpg")
+![Image](https://github.com/user-attachments/assets/467e07f6-6b30-4601-ba3f-99f0491a8d6b)
 
 ```plantuml
 @startuml

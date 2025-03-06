@@ -208,10 +208,10 @@ def ver_grupo_por_nivel(request):
         nivel = request.POST.get('nivel')
         grupos = Grupo.objects.filter(nivel=nivel)
 
-        # Obtener los estudiantes por grupo
+    
         estudiantes = Estudiante.objects.filter(grupo__in=grupos)
 
-        # Obtener los profesores y sus asignaturas correspondientes al grupo
+   
         profesores = Profesor.objects.filter(asignatura__grupo__in=grupos)
 
         return render(request, 'ver_grupo_por_nivel.html', {
@@ -222,3 +222,25 @@ def ver_grupo_por_nivel(request):
     else:
         return render(request, 'ver_grupo_por_nivel.html', {'niveles': range(1, 12)})
 
+
+
+@login_required
+@user_passes_test(es_admin)
+def modificar_usuario(request, usuario_id):
+    usuario = get_object_or_404(Usuario, id=usuario_id)
+
+
+    if usuario.rol == Usuario.ESTUDIANTE:
+        form = EstudianteForm(request.POST or None, instance=usuario)
+    elif usuario.rol == Usuario.PROFESOR:
+        form = ProfesorForm(request.POST or None, instance=usuario)
+
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Usuario actualizado correctamente.")
+            return redirect('lista_usuarios')
+        else:
+            messages.error(request, "Error al actualizar el usuario. Verifica los datos.")
+
+    return render(request, 'modificar_usuario.html', {'form': form, 'usuario': usuario})

@@ -43,6 +43,7 @@
                     {% endif %}
                 </td>
                 <td>
+                     <a href="{% url 'modificar_usuario' usuario.id %}" class="btn btn-warning">Modificar</a>
                     <a href="{% url 'eliminar_usuario' usuario.id %}" class="btn btn-danger btn-sm">
                         Eliminar
                     </a>

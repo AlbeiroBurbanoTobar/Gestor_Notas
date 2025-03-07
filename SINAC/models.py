@@ -44,15 +44,6 @@ class Profesor(models.Model):
     def __str__(self):
         return f"{self.usuario.first_name} {self.usuario.last_name}"
 
-
-class Nota(models.Model):
-    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
-    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
-    calificacion = models.FloatField()
-
-    def __str__(self):
-        return f"{self.estudiante.usuario.first_name} {self.estudiante.usuario.last_name} - {self.curso.nombre}: {self.calificacion}"
-
 class Asignatura(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
@@ -69,5 +60,14 @@ class Grupo(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - Nivel {self.nivel}"
+    
+class Nota(models.Model):
+    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+    asignatura = models.ForeignKey(Asignatura, on_delete=models.CASCADE) 
+    calificacion = models.FloatField()
+
+    def __str__(self):
+        return f"{self.estudiante.usuario.first_name} {self.estudiante.usuario.last_name} - {self.asignatura.nombre}: {self.calificacion}"
+
 
 

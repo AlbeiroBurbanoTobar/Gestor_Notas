@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Mis Notas - SINAC{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Mis Notas</h2>
+
+    <div class="card p-4 shadow-sm mx-auto" style="max-width: 800px;">
+        {% if notas %}
+            <table class="table table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Asignatura</th>
+                        <th>Calificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nota in notas %}
+                    <tr>
+                        <td>{{ nota.asignatura.nombre }}</td>
+                        <td>{{ nota.calificacion }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="text-center text-muted">No tienes notas registradas.</p>
+        {% endif %}
+
+        <div class="mt-3 text-center">
+            <a href="{% url 'home_estudiante' %}" class="btn btn-secondary">Volver al Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

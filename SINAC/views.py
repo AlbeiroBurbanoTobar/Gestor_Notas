@@ -48,12 +48,15 @@ def login_view(request):
 
 @login_required
 def home(request):
-    """ Redirige a la página correspondiente según el rol del usuario """
     if request.user.rol == Usuario.ADMINISTRADOR:
         return redirect('home_admin')
     elif request.user.rol == Usuario.ESTUDIANTE:
         return redirect('home_estudiante')
-    return redirect('login') 
+    elif request.user.rol == Usuario.PROFESOR:
+        return redirect('home_profesor')
+    
+    return redirect('login')  
+
 
 @login_required
 def home_admin(request):
@@ -257,3 +260,18 @@ def modificar_usuario(request, usuario_id):
         'form_detalles': form_detalles,
         'usuario': usuario
     })
+
+@login_required
+def home_estudiante(request):
+    if request.user.rol != Usuario.ESTUDIANTE:
+        return redirect('home')
+    
+    return render(request, 'estudiante_home.html')
+
+
+@login_required
+def home_profesor(request):
+    if request.user.rol != Usuario.PROFESOR:
+        return redirect('home')
+    
+    return render(request, 'profesor_home.html')

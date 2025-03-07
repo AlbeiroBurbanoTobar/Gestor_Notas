@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Registrar Notas - SINAC{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Registrar Notas</h2>
+
+    <div class="card p-4 shadow-sm mx-auto" style="max-width: 600px;">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="asignatura" class="form-label">Selecciona una asignatura:</label>
+                <select name="asignatura" id="asignatura" class="form-control" required>
+                    <option value="">-- Selecciona una asignatura --</option>
+                    {% for asignatura in asignaturas %}
+                        <option value="{{ asignatura.id }}">{{ asignatura.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="estudiante" class="form-label">Selecciona un estudiante:</label>
+                <select name="estudiante" id="estudiante" class="form-control" required>
+                    <option value="">-- Selecciona un estudiante --</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="calificacion" class="form-label">Ingrese la calificación:</label>
+                <input type="number" name="calificacion" id="calificacion" class="form-control" step="0.1" min="0" max="10" required>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Guardar Nota</button>
+        </form>
+    </div>
+
+    <div class="mt-3 text-center">
+        <a href="{% url 'home_profesor' %}" class="btn btn-secondary">Volver al Home</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById("asignatura").addEventListener("change", function() {
+        var asignaturaId = this.value;
+        var estudianteSelect = document.getElementById("estudiante");
+        estudianteSelect.innerHTML = '<option value="">-- Selecciona un estudiante --</option>';
+
+        if (asignaturaId) {
+            fetch(`/api/estudiantes_por_asignatura/${asignaturaId}/`)
+            .then(response => response.json())
+            .then(data => {
+                data.estudiantes.forEach(estudiante => {
+                    var option = document.createElement("option");
+                    option.value = estudiante.id;
+                    option.textContent = estudiante.nombre;
+                    estudianteSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error al cargar estudiantes:', error));
+        }
+    });
+</script>
+
+{% endblock %}

@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required,  user_passes_test
-from .models import Usuario, Estudiante
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Usuario, Estudiante, Profesor
+from .models import Usuario, Estudiante, Profesor, Asignatura,Nota
 from .forms import (ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm, AsignarEstudiantesGrupoForm,
                      VincularAsignaturasGrupoForm, ModificarUsuarioForm, ModificarEstudianteForm, ModificarProfesorForm)
 from SINAC.models import Grupo
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.http import JsonResponse
 
 
 User = get_user_model()
@@ -275,3 +275,70 @@ def home_profesor(request):
         return redirect('home')
     
     return render(request, 'profesor_home.html')
+
+@login_required
+def registrar_notas(request):
+    if request.user.rol != Usuario.PROFESOR:
+        return redirect('home')
+
+    profesor = Profesor.objects.get(usuario=request.user)
+    asignaturas = Asignatura.objects.filter(profesor=profesor)
+
+    if request.method == "POST":
+        asignatura_id = request.POST.get("asignatura")
+        estudiante_id = request.POST.get("estudiante")
+        calificacion = request.POST.get("calificacion")
+
+        if asignatura_id and estudiante_id and calificacion:
+            try:
+                estudiante = Estudiante.objects.get(id=estudiante_id)
+                asignatura = Asignatura.objects.get(id=asignatura_id)
+
+                nota, created = Nota.objects.update_or_create(
+                    estudiante=estudiante,
+                    asignatura=asignatura,
+                    defaults={'calificacion': float(calificacion)}
+                )
+
+                messages.success(request, "Nota registrada exitosamente.")
+            except Exception as e:
+                messages.error(request, f"Error al registrar la nota: {str(e)}")
+        else:
+            messages.error(request, "Todos los campos son obligatorios.")
+
+    return render(request, 'registrar_notas.html', {'asignaturas': asignaturas})
+
+@login_required
+def estudiantes_por_asignatura(request, asignatura_id):
+
+    if request.user.rol != Usuario.PROFESOR:
+        return JsonResponse({'error': 'No autorizado'}, status=403)
+
+    asignatura = get_object_or_404(Asignatura, id=asignatura_id, profesor__usuario=request.user)
+    estudiantes = Estudiante.objects.filter(grupo=asignatura.grupo)
+
+    estudiantes_data = [{'id': estudiante.id, 'nombre': f"{estudiante.usuario.first_name} {estudiante.usuario.last_name}"} for estudiante in estudiantes]
+    
+    return JsonResponse({'estudiantes': estudiantes_data})
+
+@login_required
+def ver_notas_estudiante(request):
+    if request.user.rol != Usuario.ESTUDIANTE:
+        return redirect('home')
+
+    estudiante = get_object_or_404(Estudiante, usuario=request.user)
+    notas = Nota.objects.filter(estudiante=estudiante)
+
+    return render(request, 'ver_notas.html', {'notas': notas})
+
+@login_required
+def ver_notas_docente(request):
+    """Permite a los docentes ver las notas de sus estudiantes"""
+    if request.user.rol != Usuario.PROFESOR:
+        return redirect('home')
+
+    profesor = get_object_or_404(Profesor, usuario=request.user)
+    asignaturas = Asignatura.objects.filter(profesor=profesor)
+    notas = Nota.objects.filter(asignatura__in=asignaturas).select_related('estudiante', 'asignatura')
+
+    return render(request, 'ver_notas_docente.html', {'notas': notas, 'asignaturas': asignaturas})

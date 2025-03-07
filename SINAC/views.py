@@ -330,3 +330,15 @@ def ver_notas_estudiante(request):
     notas = Nota.objects.filter(estudiante=estudiante)
 
     return render(request, 'ver_notas.html', {'notas': notas})
+
+@login_required
+def ver_notas_docente(request):
+    """Permite a los docentes ver las notas de sus estudiantes"""
+    if request.user.rol != Usuario.PROFESOR:
+        return redirect('home')
+
+    profesor = get_object_or_404(Profesor, usuario=request.user)
+    asignaturas = Asignatura.objects.filter(profesor=profesor)
+    notas = Nota.objects.filter(asignatura__in=asignaturas).select_related('estudiante', 'asignatura')
+
+    return render(request, 'ver_notas_docente.html', {'notas': notas, 'asignaturas': asignaturas})

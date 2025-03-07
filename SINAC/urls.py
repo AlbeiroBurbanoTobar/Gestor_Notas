@@ -4,7 +4,7 @@ from .views import (home, home_admin, home_estudiante, registrar_estudiante,
                      crear_asignatura, crear_grupo, asignar_estudiantes_a_grupo,
                      vincular_asignaturas_a_grupo, ver_grupo_por_nivel,
                      modificar_usuario, home_profesor, registrar_notas,
-                     estudiantes_por_asignatura, ver_notas_estudiante)
+                     estudiantes_por_asignatura, ver_notas_estudiante, ver_notas_docente)
 
 urlpatterns = [
     path('', home, name="home"),
@@ -25,7 +25,7 @@ urlpatterns = [
     path('registrar_notas/', registrar_notas, name='registrar_notas'),
     path('api/estudiantes_por_asignatura/<int:asignatura_id>/', estudiantes_por_asignatura, name='api_estudiantes_por_asignatura'),
     path('ver_notas/', ver_notas_estudiante, name='ver_notas'),
-
+    path('ver_notas_docente/', ver_notas_docente, name='ver_notas_docente'),
 
 
 ]

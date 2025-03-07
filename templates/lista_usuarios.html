@@ -18,7 +18,7 @@
                 <th>Nombre de Usuario</th>
                 <th>Nombre Completo</th>
                 <th>Rol</th>
-                <th>Documento de Identidad</th>  <!-- Nueva columna -->
+                <th>Documento de Identidad</th> 
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -43,7 +43,8 @@
                     {% endif %}
                 </td>
                 <td>
-                     <a href="{% url 'modificar_usuario' usuario.id %}" class="btn btn-warning">Modificar</a>
+                    <a href="{% url 'modificar_usuario' usuario.id %}" class="btn btn-warning">Modificar</a>
+
                     <a href="{% url 'eliminar_usuario' usuario.id %}" class="btn btn-danger btn-sm">
                         Eliminar
                     </a>

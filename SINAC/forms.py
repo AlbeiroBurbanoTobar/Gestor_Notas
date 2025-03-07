@@ -6,7 +6,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import Usuario, Estudiante, Asignatura, Profesor, Grupo
 
-class EstudianteForm(UserCreationForm):  # Heredamos de UserCreationForm para incluir usuario y contraseña
+class EstudianteForm(UserCreationForm):  
     documento = forms.CharField(max_length=20, required=True, label="Documento de Identidad")
     fecha_nacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), required=True)
     telefono_acudiente = forms.CharField(max_length=15, required=True, label="Teléfono del Acudiente")
@@ -18,10 +18,10 @@ class EstudianteForm(UserCreationForm):  # Heredamos de UserCreationForm para in
 
     def save(self, commit=True):
         usuario = super().save(commit=False)
-        usuario.rol = Usuario.ESTUDIANTE  # Asignamos el rol de estudiante
+        usuario.rol = Usuario.ESTUDIANTE  
         if commit:
             usuario.save()
-            # Creamos el perfil del estudiante
+            
             estudiante = Estudiante.objects.create(
                 usuario=usuario,
                 documento=self.cleaned_data['documento'],
@@ -34,7 +34,7 @@ class EstudianteForm(UserCreationForm):  # Heredamos de UserCreationForm para in
     def save(self, commit=True):
         usuario = super().save(commit=False)
         usuario.set_password(self.cleaned_data["password"])
-        usuario.rol = Usuario.ESTUDIANTE  # Asignar el rol de estudiante
+        usuario.rol = Usuario.ESTUDIANTE  
         if commit:
             usuario.save()
             estudiante = Estudiante.objects.create(
@@ -126,3 +126,23 @@ class VincularAsignaturasGrupoForm(forms.Form):
 
 class SeleccionarNivelForm(forms.Form):
     nivel = forms.ChoiceField(choices=[(i, str(i)) for i in range(1, 12)], label="Seleccionar Nivel")
+
+
+class ModificarUsuarioForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['first_name', 'last_name', 'email', 'rol'] 
+    def __init__(self, *args, **kwargs):
+        super(ModificarUsuarioForm, self).__init__(*args, **kwargs)
+        self.fields['rol'].disabled = True  
+
+
+class ModificarEstudianteForm(forms.ModelForm):
+    class Meta:
+        model = Estudiante
+        fields = ['documento', 'fecha_nacimiento', 'telefono_acudiente', 'direccion']
+
+class ModificarProfesorForm(forms.ModelForm):
+    class Meta:
+        model = Profesor
+        fields = ['documento', 'fecha_nacimiento', 'telefono', 'direccion', 'email']

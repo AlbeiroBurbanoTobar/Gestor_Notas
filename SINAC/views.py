@@ -6,7 +6,8 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Usuario, Estudiante, Profesor
-from .forms import ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm, AsignarEstudiantesGrupoForm, VincularAsignaturasGrupoForm
+from .forms import (ProfesorForm, AsignaturaForm, EstudianteForm, GrupoForm, AsignarEstudiantesGrupoForm,
+                     VincularAsignaturasGrupoForm, ModificarUsuarioForm, ModificarEstudianteForm, ModificarProfesorForm)
 from SINAC.models import Grupo
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -40,7 +41,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("home")  # Redirige al home según el rol
+            return redirect("home")  
         else:
             return render(request, "login.html", {"error": "Usuario o contraseña incorrectos"})
     return render(request, "login.html")
@@ -229,18 +230,30 @@ def ver_grupo_por_nivel(request):
 def modificar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
 
-
     if usuario.rol == Usuario.ESTUDIANTE:
-        form = EstudianteForm(request.POST or None, instance=usuario)
+        estudiante = get_object_or_404(Estudiante, usuario=usuario)
+        form_usuario = ModificarUsuarioForm(request.POST or None, instance=usuario)
+        form_detalles = ModificarEstudianteForm(request.POST or None, instance=estudiante)
     elif usuario.rol == Usuario.PROFESOR:
-        form = ProfesorForm(request.POST or None, instance=usuario)
+        profesor = get_object_or_404(Profesor, usuario=usuario)
+        form_usuario = ModificarUsuarioForm(request.POST or None, instance=usuario)
+        form_detalles = ModificarProfesorForm(request.POST or None, instance=profesor)
+    else:
+        form_usuario = ModificarUsuarioForm(request.POST or None, instance=usuario)
+        form_detalles = None
 
     if request.method == "POST":
-        if form.is_valid():
-            form.save()
+        if form_usuario.is_valid() and (form_detalles is None or form_detalles.is_valid()):
+            form_usuario.save()
+            if form_detalles:
+                form_detalles.save()
             messages.success(request, "Usuario actualizado correctamente.")
             return redirect('lista_usuarios')
         else:
             messages.error(request, "Error al actualizar el usuario. Verifica los datos.")
 
-    return render(request, 'modificar_usuario.html', {'form': form, 'usuario': usuario})
+    return render(request, 'modificar_usuario.html', {
+        'form_usuario': form_usuario,
+        'form_detalles': form_detalles,
+        'usuario': usuario
+    })

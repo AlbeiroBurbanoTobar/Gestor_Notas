@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Bienvenido, {{ user.first_name }} {{ user.last_name }}</h1>
+<p>Aquí puedes gestionar asignaturas y grupos.</p>
+
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Cerrar Sesión</button>
+</form>
+{% endblock %}

@@ -3,12 +3,13 @@ from .views import (home, home_admin, home_estudiante, registrar_estudiante,
                      registrar_profesor, eliminar_usuario, lista_usuarios, 
                      crear_asignatura, crear_grupo, asignar_estudiantes_a_grupo,
                      vincular_asignaturas_a_grupo, ver_grupo_por_nivel,
-                     modificar_usuario)
+                     modificar_usuario, home_profesor)
 
 urlpatterns = [
     path('', home, name="home"),
     path('admin_home/', home_admin, name="home_admin"),
     path('estudiante_home/', home_estudiante, name="home_estudiante"),
+    path('profesor_home/', home_profesor, name="home_profesor"),
     path('accounts/', include('django.contrib.auth.urls')),  
     path('registrar_estudiante/', registrar_estudiante, name='registrar_estudiante'),
     path('registrar_profesor/', registrar_profesor, name='registrar_profesor'),
